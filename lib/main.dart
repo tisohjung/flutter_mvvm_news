@@ -14,11 +14,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xfffefdfd),
+        appBarTheme: AppBarTheme(
+          color: Color(0xfffefdfd),
+          elevation: 0,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          actionsIconTheme: IconThemeData(color: Colors.black),
+        ),
         primarySwatch: Colors.blue,
       ),
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider<NewsArticleListViewModel>(
+          ChangeNotifierProvider(
             create: (_) => NewsArticleListViewModel(),
           ),
         ],
