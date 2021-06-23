@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../model/news_article.dart';
 
 class NewsArticleViewModel {
@@ -26,6 +28,8 @@ class NewsArticleViewModel {
   }
 
   String get publishedAt {
-    return _newsArticle.publishedAt;
+    final dateTime = DateFormat('yyyy-mm-ddTHH:mm:ssZ')
+        .parse(_newsArticle.publishedAt, true);
+    return DateFormat.yMMMMEEEEd('en-us').format(dateTime).toString();
   }
 }
